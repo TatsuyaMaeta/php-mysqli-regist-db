@@ -57,9 +57,9 @@
             </tbody>
             <tfoot>
                 <tr>
-                    <label for=" bk_price">
+                    <label for="bk_date">
                         <td>本の購入日</td>
-                        <td><input type="date" name="date"></td>
+                        <td><input id="bk_date" type="date" name="bk_date"></td>
                     </label>
                 </tr>
             </tfoot>
@@ -72,6 +72,31 @@
 // https: //www.wetch.co.jp/only-numbers-input/
 const onlyNumbers = n => {
     return n.replace(/[０-９]/g, s => String.fromCharCode(s.charCodeAt(0) - 65248)).replace(/\D/g, '');
+}
+
+//今日の日時を表示
+//https://wakalog.hatenadiary.jp/entry/2017/10/25/104040
+window.onload = function() {
+    //今日の日時を表示
+    const date = new Date();
+    let year = date.getFullYear()
+    let month = date.getMonth() + 1
+    var day = date.getDate()
+
+    const toTwoDigits = function(num, digit) {
+        num += '';
+        if (num.length < digit) {
+            num = '0' + num
+        }
+        return num
+    }
+
+    var yyyy = toTwoDigits(year, 4)
+    var mm = toTwoDigits(month, 2)
+    var dd = toTwoDigits(day, 2)
+    var ymd = yyyy + "-" + mm + "-" + dd;
+
+    document.getElementById("bk_date").value = ymd;
 }
 </script>
 
