@@ -33,11 +33,14 @@ if ($mysqli->connect_error) {
 // (4)プリペアドステートメントの用意
 $stmt = $mysqli->prepare(
             'INSERT INTO books_table
-                        (bk_name, bk_category, bk_text, bk_price, bk_date) 
+                        (bk_name, bk_category, bk_text, bk_pric, bk_date) 
                 VALUES  (?, ?, ?, ?, ?)'
 );
 
 // Fatal error: Uncaught Error: Call to a member function bind_param() on bool in
+// というふうにエラーでDBに登録できない時は
+// INSERT文が間違っているのかそれ以外が間違っているのかを切り分けるために
+// MYSQLに直接打ち込んで見る
 
 // (5)登録するデータをセット
 $stmt->bind_param('sssis', $bk_name, $bk_category, $bk_text, $bk_price, $bk_date);
