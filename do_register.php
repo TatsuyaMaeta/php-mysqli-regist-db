@@ -33,7 +33,7 @@ if ($mysqli->connect_error) {
 // (4)プリペアドステートメントの用意
 $stmt = $mysqli->prepare(
             'INSERT INTO books_table
-                        (bk_name, bk_category, bk_text, bk_pric, bk_date) 
+                        (bk_name, bk_category, bk_text, bk_price, bk_date) 
                 VALUES  (?, ?, ?, ?, ?)'
 );
 
