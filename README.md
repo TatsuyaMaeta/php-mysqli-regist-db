@@ -1,6 +1,6 @@
 # php-mysqli-regist-db
 
-##結論：PDOで良い
+## 結論：PDOで良い
 
 ### php でのmysqliを使用したｄｂへのデータ登録の方法
 
